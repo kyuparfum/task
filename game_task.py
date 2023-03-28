@@ -198,5 +198,5 @@ while True:
     else:
         break
 
-time.sleep(5)  # 5초후
-os.system('clear')  # 콘솔창종료
+time.sleep(5)  
+os.system('clear')  # 5초 후 콘솔창 종료
