@@ -35,6 +35,7 @@ class Character:
               f"DAMAGE(마법) : {self.magic} \n"
               f"--------------------------\033[0m")
 
+# 물리 마법 공격 및 상태출력
     def attack(self, select):
         if select == 1:
             user_damage = self.power * randint(1, self.damage * 1)
@@ -53,6 +54,8 @@ class Character:
         print(f"플레이어의 남은 HP는 {self.max_hp}입니다.")
         if self.max_hp < 0:
             self.alive = False
+
+# 몬스터 기본정보 및 대미지, 공격, 상태 체크함수
 
 
 class Monster:
@@ -88,7 +91,7 @@ def make_player():
     return player
 
 
-# 유저의 power부여
+# 유저의 power 랜덤 재부여
 def make_power():
     random_power = randint(1, 20)
     print(f"당신의 power는 {random_power}입니다. (1~20)")
@@ -102,7 +105,7 @@ def make_power():
         return random_power
 
 
-# 몬스터 선택
+# 몬스터 선택 이건뭐 임의로 생성하고 출력으로 이름만 뜨게 한 부분이라 나중에 각각 자신의 몬스터도 임의 생성되게 하고싶다.
 def make_monster():
     user_monster = input("\033[96m 상대할 몬스터를 선택해 주세요. 포켓몬은 랜덤의 스텟을 가집니다.\033[0m\n"
                          "\033[33m  1. 피카츄 \033[0m\n \033[31m 2. 파이리\033[0m \n \033[34m 3. 꼬북이 \033[0m \n "
@@ -132,7 +135,7 @@ def make_monster():
         return monster_num
 
 
-# 대답 유효성 판단
+# 대답 유효성 판단 (핑핑이엄마의 도움으로 간단하게 선택을 만들 수 있었다.) 처음에는 문자로 하니깐 답도 없더니 이렇게 하니깐 오류없이 잘 진행됐다.
 def check_answer():
     while True:
         check = input("\033[33m 1.예\033[0m \033[31m 2.아니오\033[0m \n")
@@ -146,7 +149,7 @@ def check_answer():
             return int(check)
 
 
-# 공격속성선택
+# 공격 방식 선택(다음번에는 원소(element)개념의 속성도넣고싶다.)
 def select_attack():
     while True:
         select = input("공격 방법을 선택해 주세요. \n"
@@ -162,6 +165,7 @@ def select_attack():
             return int(select)
 
 
+# 싸우자싸워~!
 total = 0
 name_receive = make_player()
 power_receive = make_power()
@@ -198,5 +202,5 @@ while True:
     else:
         break
 
-time.sleep(5)  
-os.system('clear')  # 5초 후 콘솔창 종료
+time.sleep(5)  # 5초후
+os.system('clear')  # 콘솔창종료
